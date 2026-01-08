@@ -45,6 +45,7 @@ export default async function RootLayout({
         deleteCookie();
       }
     } catch (error) {
+      console.log(error);
       deleteCookie();
     }
   };

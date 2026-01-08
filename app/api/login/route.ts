@@ -6,20 +6,22 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const store = await cookies();
-   store.set({
+
+    const response = NextResponse.redirect(new URL("/", request.url));
+
+    response.cookies.set({
       name: "token",
       value: body.token,
       httpOnly: true,
-      path: "/",                 // ⭐ заавал
-      sameSite: "lax",            // ⭐ dev + prod safe
-      secure: process.env.NODE_ENV === "production",
-      maxAge: 60 * 60 * 24 * 7,   // 7 хоног (сонголт)
+      path: "/",
+      sameSite: "lax",
+      secure: true,
+      maxAge: 60 * 60 * 24 * 7,
     });
-
-    return NextResponse.redirect(new URL("/", baseUrl));
+    console.log("login");
+    return response;
   } catch (error) {
     console.error("⛔ Route error:", error);
-    return NextResponse.json({ success: false });
+    return NextResponse.json({ success: false }, { status: 500 });
   }
 }

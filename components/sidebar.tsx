@@ -111,6 +111,7 @@ export default function Sidebar({
         <div className="p-3 border-t border-sidebar-border/10">
           <Link
             href={"/api/logout"}
+            prefetch={false}
             className={cn(
               "w-full justify-start flex items-center py-2 text-muted-foreground hover:text-foreground hover:bg-sidebar-accent",
               collapsed && "justify-center"

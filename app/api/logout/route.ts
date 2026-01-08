@@ -3,8 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   const store = await cookies();
+  console.log("delete");
   store.delete("token");
-  return NextResponse.redirect(
-    new URL("/login", process.env.URL)
-  );
+  return NextResponse.redirect(new URL("/login", process.env.URL));
 }
