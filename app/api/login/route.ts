@@ -15,7 +15,7 @@ export async function POST(request: Request) {
       httpOnly: true,
       path: "/",
       sameSite: "lax",
-      secure: true,
+      secure: false,
       maxAge: 60 * 60 * 24 * 7,
     });
     console.log("login");
