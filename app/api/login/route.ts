@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     const body = await request.json();
 
     const response = NextResponse.redirect(new URL("/", baseUrl));
-
+    console.log(baseUrl)
     response.cookies.set({
       name: "token",
       value: body.token,

@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     
   },
   env: {
-    URL: 'http://localhost:3000/'
+    URL: 'http://72.62.196.155:3000/'
   }
 };
 
