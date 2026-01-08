@@ -7,7 +7,15 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const store = await cookies();
-    store.set("token", body.token);
+   store.set({
+      name: "token",
+      value: body.token,
+      httpOnly: true,
+      path: "/",                 // ⭐ заавал
+      sameSite: "lax",            // ⭐ dev + prod safe
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 60 * 60 * 24 * 7,   // 7 хоног (сонголт)
+    });
 
     return NextResponse.redirect(new URL("/", baseUrl));
   } catch (error) {
