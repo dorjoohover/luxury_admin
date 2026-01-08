@@ -39,4 +39,4 @@ export const API = {
   [Api.upload]: BASE + "upload",
 };
 
-export const baseUrl = process.env.URL || "http://localhost:3000";
+export const baseUrl = process.env.URL || "http://72.62.196.155:3000/";
